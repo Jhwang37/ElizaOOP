@@ -32,19 +32,36 @@ public class Eliza {
         for (String splitWord : input.split(" ")) {
             userInput.add(splitWord);
         }
+
         for (int i = 0; i <= userInput.size() - 1; i++) {
             if (userInput.get(i).equalsIgnoreCase("my")) {
                 userInput.set(i, "your");
             }if (userInput.get(i).equalsIgnoreCase("me")) {
                 userInput.set(i, "you");
+            }if(userInput.get(i).equalsIgnoreCase("i")){
+                userInput.set(i, "you");
+            }if(userInput.get(i).equalsIgnoreCase("am")){
+                userInput.set(i, "are");
             }
         }
-        printList(userInput);
+        outputSay(userInput);
     }
 
     public void printList(ArrayList userInput) {
         for (Object x : userInput) {
             System.out.print(x + " ");
         }System.out.println();
+    }
+
+    public void outputSay(ArrayList userInput){
+        if(userInput.contains("my")){
+            System.out.print("Why do you say that ");
+            printList(userInput);
+        }if(userInput.contains("i")){
+            System.out.println("You seem to think that ");
+            printList(userInput);
+        }if(userInput.contains("girls")){
+            System.out.println("Please tell me more");
+        }
     }
 }
